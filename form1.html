@@ -47,13 +47,11 @@
 </head>
 <body>
 
-   
     <div class="button-container">
-        <button onclick="showForm('signupForm')">Üye Ol</button>
-        <button onclick="showForm('loginForm')">Giriş Yap</button>
+        <button onclick="document.getElementById('signupForm').classList.add('active'); document.getElementById('loginForm').classList.remove('active');">Üye Ol</button>
+        <button onclick="document.getElementById('loginForm').classList.add('active'); document.getElementById('signupForm').classList.remove('active');">Giriş Yap</button>
     </div>
 
-    
     <div id="signupForm" class="form-container">
         <h2>Üye Ol</h2>
         <form action="test1.html" method="post">
@@ -85,7 +83,6 @@
         </form>
     </div>
 
-    
     <div id="loginForm" class="form-container">
         <h2>Giriş Yap</h2>
         <form action="test1.html" method="post">
@@ -99,11 +96,10 @@
             <input type="checkbox" id="login-robot" name="robot"><br><br>
 
             <button type="submit">Giriş Yap</button>
-            <p class="forgot-password"><a href="#forgotPasswordForm" onclick="showForm('forgotPasswordForm')">Şifremi Unuttum</a></p>
+            <p class="forgot-password"><a href="#forgotPasswordForm" onclick="document.getElementById('forgotPasswordForm').classList.add('active'); document.getElementById('loginForm').classList.remove('active');">Şifremi Unuttum</a></p>
         </form>
     </div>
 
-    
     <div id="forgotPasswordForm" class="form-container">
         <h2>Şifremi Unuttum</h2>
         <form action="password_reset.html" method="post">
@@ -114,21 +110,8 @@
     </div>
 
     <script>
-        function showForm(formId) {
-            
-            const forms = document.querySelectorAll('.form-container');
-            forms.forEach(form => {
-                form.classList.remove('active');
-            });
-
-            const selectedForm = document.getElementById(formId);
-            selectedForm.classList.add('active');
-        }
-
-    
-        window.onload = function() {
-            showForm('loginForm'); 
-        }
+        // Sayfa yüklendiğinde giriş formunu göster
+        document.getElementById('loginForm').classList.add('active'); 
     </script>
 
 </body>
