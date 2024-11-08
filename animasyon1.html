@@ -6,6 +6,7 @@
 <title>Animasyon</title>
 <style>
 
+
   .container {
     display: flex;
     gap: 20px;
@@ -24,28 +25,27 @@
     justify-content: center;
   }
 
-  
-  .eye {
+  .goz {
     width: 10px;
-    height: 10px;
+    height: 14px;
     background-color: black;
     border-radius: 50%;
     position: absolute;
     top: 30%;
   }
 
-  .eye.left {
+  .goz.left {
     left: 30%;
   }
 
-  .eye.right {
+  .goz.right {
     right: 30%;
   }
 
   
-  .mouth.smile {
-    width: 40px;
-    height: 15px;
+  .gulen.agiz {
+    width: 50px;
+    height: 20px;
     background-color: black;
     border-radius: 0 0 20px 20px;
     position: absolute;
@@ -53,7 +53,7 @@
   }
 
   
-  .mouth.straight {
+  .duz.agiz {
     width: 30px;
     height: 5px;
     background-color: black;
@@ -62,7 +62,7 @@
   }
 
   
-  .mouth.sad {
+  .uzgun.agiz {
     width: 40px;
     height: 15px;
     background-color: black;
@@ -72,7 +72,7 @@
   }
 
   
-  .mouth.surprised {
+  .saskin.agiz {
     width: 20px;
     height: 20px;
     background-color: black;
@@ -82,7 +82,7 @@
   }
 
   
-  .mouth.open {
+  .dahasaskin.agiz {
     width: 30px;
     height: 30px;
     background-color: black;
@@ -145,39 +145,43 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  
 </style>
 </head>
 <body>
+    <div style="position: absolute; top: 250px; left: 250px;">
+        <strong>Hocam bunu çok beğenmiştiniz :)</strong>
+      </div>
 
 <div class="container">
   <div class="animated-div up-down">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth smile"></div>
+    <div class="goz left"></div>
+    <div class="goz right"></div>
+    <div class="gulen agiz"></div>
   </div>
   
   <div class="animated-div scale-color">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth straight"></div>
+    <div class="goz left"></div>
+    <div class="goz right"></div>
+    <div class="duz agiz"></div>
   </div>
   
   <div class="animated-div fade-in-out">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth sad"></div>
+    <div class="goz left"></div>
+    <div class="goz right"></div>
+    <div class="uzgun agiz"></div>
   </div>
   
   <div class="animated-div left-right">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth surprised"></div>
+    <div class="goz left"></div>
+    <div class="goz right"></div>
+    <div class="saskin agiz"></div>
   </div>
   
   <div class="animated-div rotate">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth open"></div>
+    <div class="goz left"></div>
+    <div class="goz right"></div>
+    <div class="dahasaskin agiz"></div>
   </div>
 </div>
 
