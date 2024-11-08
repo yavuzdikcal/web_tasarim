@@ -48,8 +48,8 @@
 <body>
 
     <div class="button-container">
-        <button onclick="document.getElementById('signupForm').classList.add('active'); document.getElementById('loginForm').classList.remove('active');">Üye Ol</button>
-        <button onclick="document.getElementById('loginForm').classList.add('active'); document.getElementById('signupForm').classList.remove('active');">Giriş Yap</button>
+        <button onclick="showForm('signupForm')">Üye Ol</button>
+        <button onclick="showForm('loginForm')">Giriş Yap</button>
     </div>
 
     <div id="signupForm" class="form-container">
@@ -96,7 +96,7 @@
             <input type="checkbox" id="login-robot" name="robot"><br><br>
 
             <button type="submit">Giriş Yap</button>
-            <p class="forgot-password"><a href="#forgotPasswordForm" onclick="document.getElementById('forgotPasswordForm').classList.add('active'); document.getElementById('loginForm').classList.remove('active');">Şifremi Unuttum</a></p>
+            <p class="forgot-password"><a href="#forgotPasswordForm" onclick="showForm('forgotPasswordForm')">Şifremi Unuttum</a></p>
         </form>
     </div>
 
@@ -110,8 +110,15 @@
     </div>
 
     <script>
-       
-        document.getElementById('loginForm').classList.add('active'); 
+        function showForm(formId) {
+            document.getElementById('signupForm').classList.remove('active');
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('forgotPasswordForm').classList.remove('active');
+            document.getElementById(formId).classList.add('active');
+        }
+
+        // Sayfa yüklendiğinde giriş formu görünsün
+        document.getElementById('loginForm').classList.add('active');
     </script>
 
 </body>
