@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animasyonlu Divler</title>
+<title>Animasyon</title>
 <style>
-  
+
   .container {
     display: flex;
     gap: 20px;
@@ -18,6 +18,77 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .eye {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+  }
+
+  .eye.left {
+    left: 30%;
+  }
+
+  .eye.right {
+    right: 30%;
+  }
+
+  
+  .mouth.smile {
+    width: 40px;
+    height: 15px;
+    background-color: black;
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    top: 55%;
+  }
+
+  
+  .mouth.straight {
+    width: 30px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    top: 55%;
+  }
+
+  
+  .mouth.sad {
+    width: 40px;
+    height: 15px;
+    background-color: black;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    top: 60%;
+  }
+
+  
+  .mouth.surprised {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 55%;
+  }
+
+  
+  .mouth.open {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
   }
 
   
@@ -42,7 +113,7 @@
     50% { transform: scale(1.2); background-color: orange; }
   }
 
-  
+
   .fade-in-out {
     background-color: pink;
     animation: fadeInOut 4s ease-in-out infinite;
@@ -64,6 +135,7 @@
     50% { transform: translateX(20px); }
   }
 
+  
   .rotate {
     background-color: green;
     animation: rotate 2s linear infinite;
@@ -78,11 +150,35 @@
 <body>
 
 <div class="container">
-  <div class="animated-div up-down"></div>
-  <div class="animated-div scale-color"></div>
-  <div class="animated-div fade-in-out"></div>
-  <div class="animated-div left-right"></div>
-  <div class="animated-div rotate"></div>
+  <div class="animated-div up-down">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth smile"></div>
+  </div>
+  
+  <div class="animated-div scale-color">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth straight"></div>
+  </div>
+  
+  <div class="animated-div fade-in-out">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth sad"></div>
+  </div>
+  
+  <div class="animated-div left-right">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth surprised"></div>
+  </div>
+  
+  <div class="animated-div rotate">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth open"></div>
+  </div>
 </div>
 
 </body>
