@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap</title>
+    <title>Giriş ve Üyelik</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,37 +52,21 @@
         button:hover {
             background-color: #0056b3;
         }
-        .forgot-password {
+        .switch-link {
             text-align: center;
             margin-top: 10px;
-        }
-        .forgot-password a {
             color: #007BFF;
-            text-decoration: none;
+            cursor: pointer;
         }
-        .forgot-password a:hover {
-            text-decoration: underline;
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Giriş Yap</h2>
-        <form action="test1.html" method="get">
-            <label for="username">Kullanıcı Adı veya E-posta:</label>
-            <input type="text" id="username" name="username" placeholder="Kullanıcı Adı veya E-posta">
-            
-            <label for="password">Şifre:</label>
-            <input type="password" id="password" name="password" placeholder="Şifre">
-            
-            <label for="robot">Ben robot değilim:</label>
-            <input type="checkbox" id="robot" name="robot">
-
-            <button type="submit">Giriş Yap</button>
-        </form>
-        <p class="forgot-password"><a href="test1.html">Şifremi Unuttum</a></p>
-    </div>
-
-</body>
-</html>
+        <!-- Giriş
