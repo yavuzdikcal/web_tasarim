@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto 2fr auto auto; 
+            gap: 10px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .item-A {
+            grid-column: 1 / 4; 
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .item-B {
+            grid-column: 1 / 2; 
+            background-color: orange;
+            color: white;
+            text-align: center;
+            padding: 40px 20px; 
+        }
+
+        .item-C {
+            grid-column: 2 / 3; 
+            grid-row: 2 / 3;    
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 40px 20px; 
+        }
+
+        .item-D {
+            grid-column: 3 / 4; 
+            grid-row: 2 / 3;   
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 40px 20px; 
+        }
+
+        .item-E {
+            grid-column: 1 / 3; 
+            grid-row: 3 / 4;    
+            background-color: yellow;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .item-F {
+            grid-column: 3 / 4; 
+            grid-row: 3 / 4;    
+            background-color: purple;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .item-G {
+            grid-column: 1 / 4; 
+            grid-row: 4 / 5;    
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-A">A</div>
+        <div class="item-B">B</div>
+        <div class="item-C">C</div>
+        <div class="item-D">D</div>
+        <div class="item-E">E</div>
+        <div class="item-F">F</div>
+        <div class="item-G">G</div>
+    </div>
+</body>
+</html>
