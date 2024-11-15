@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastgele Arka Plan ve Resim Göster/Gizle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-size: cover;
+            background-position: center;
+        }
+        img {
+            max-width: 300px;
+            height: auto;
+            margin: 20px;
+            display: none; 
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rastgele Arka Plan ve Resim Göster/Gizle</h1>
+
+  
+    <img id="resim1" src="img/1.jpg" alt="Resim 1">
+    <img id="resim2" src="img/2.jpg" alt="Resim 2">
+    <img id="resim3" src="img/3.jpg" alt="Resim 3">
+
+    
+    <div>
+        <button onclick="toggleImage('resim1')">Resim 1 Göster/Gizle</button>
+        <button onclick="toggleImage('resim2')">Resim 2 Göster/Gizle</button>
+        <button onclick="toggleImage('resim3')">Resim 3 Göster/Gizle</button>
+    </div>
+
+    <script>
+      
+        function setRandomBackground() {
+            const randomIndex = Math.floor(Math.random() * 10) + 1; // 1 ile 10 arasında rastgele bir sayı
+            document.body.style.backgroundImage = `url('img/${randomIndex}.jpg')`;
+        }
+
+        
+        function toggleImage(imageId) {
+            const image = document.getElementById(imageId);
+            image.style.display = (image.style.display === 'none') ? 'block' : 'none';
+        }
+
+        window.onload = setRandomBackground;
+    </script>
+</body>
+</html>
