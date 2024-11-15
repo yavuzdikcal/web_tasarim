@@ -27,8 +27,9 @@
     <h1>Selam!</h1>
     <img id="animalImage" src="img/selam.jpg" alt="Selam Fotoğrafı">
     <div>
-        <button onclick="shokedi()">Kedi</button>
+        <button onclick="showkedi()">Kedi</button>
         <button onclick="showkopek()">Köpek</button>
+        <button onclick="showSelam()">Geri</button>
     </div>
 
     <script>
@@ -42,6 +43,12 @@
             const image = document.getElementById("animalImage");
             image.src = "img/kopek.jpg"; 
             image.alt = "Köpek Fotoğrafı";
+        }
+
+        function showSelam() {
+            const image = document.getElementById("animalImage");
+            image.src = "img/selam.jpg"; 
+            image.alt = "Selam Fotoğrafı";
         }
     </script>
 </body>
