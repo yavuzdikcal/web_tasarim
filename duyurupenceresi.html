@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duyuru Penceresi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #4caf50;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+      animation: fadeOut 5s forwards 3s;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    #popup.show {
+      opacity: 1;
+      visibility: visible;
+      animation: fadeOut 5s forwards 0s;
+    }
+  </style>
+</head>
+<body>
+  <div id="popup" class="show">
+    Bu bir duyurudur! 5 saniye içinde kapanacak.
+  </div>
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById('popup');
+      popup.classList.remove('show');
+    }, 5000);
+  </script>
+</body>
+</html>
