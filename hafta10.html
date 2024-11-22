@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Grid</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(8, 40px);
+            grid-gap: 5px;
+        }
+        .grid-item {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #00f, #0f0);
+            animation: fade-in 1s ease-in-out;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container"></div>
+
+    <script>
+        const container = document.querySelector('.grid-container');
+        const rows = 8; // Satır sayısı
+        const cols = 8; // Sütun sayısı
+
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const circle = document.createElement('div');
+                circle.className = 'grid-item';
+                // Renk gradyanını ayarlayın
+                const hueStart = 180; // Mavi
+                const hueEnd = 120;  // Yeşil
+                const hue = hueStart + ((hueEnd - hueStart) / (rows - 1)) * i;
+
+                circle.style.background = `hsl(${hue}, 100%, ${100 - j * 8}%)`;
+                container.appendChild(circle);
+            }
+        }
+    </script>
+</body>
+</html>
