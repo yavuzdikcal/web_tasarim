@@ -1,5 +1,5 @@
 <?php
-
+// Veritabanı bağlantısı
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,18 +11,18 @@ if ($conn->connect_error) {
     die("Bağlantı başarısız: " . $conn->connect_error);
 }
 
-
+// Sorular ve seçenekler
 $sorular = [
     "PHP'yi ne kadar seviyorsunuz?",
     "Bu sektörde çalışmak ister miydiniz?",
-    "Programlama yaparken eğleniyor musunuz?",
-    "VSCode ile bir tecrübeniz var mı?",
+    "Veritabanı çalışmayı seviyor musunuz?",
+    "VSCode tecrübeniz var mı?",
     "Programlamada tecrübeniz nedir?"
 ];
 
 $secenekler = ["Çok", "Az", "Hiç", "Bilmiyorum"];
 
-
+// Oylama gönderildiğinde işleme
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     foreach ($sorular as $index => $soru) {
         $cevap = $_POST['cevap_' . $index];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     echo "<div class='success'>Oylarınız başarıyla kaydedildi!</div>";
 }
 
-
+// Sonuçları alma
 $sonuclar = [];
 foreach ($sorular as $soru) {
     $sql = "SELECT cevap, COUNT(*) as sayi FROM anket_sonuclari WHERE soru = ? GROUP BY cevap";
@@ -69,42 +69,50 @@ foreach ($sorular as $soru) {
     <title>Anket</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e8f0fe;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f7f7;
             color: #333;
+            margin: 0;
             padding: 20px;
         }
-        form {
-            background: #fff;
+        .container {
+            background: #ffffff;
             padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0;
         }
         h1 {
-            color: #1a73e8;
+            text-align: left;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         label {
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
             display: block;
+            color: #555;
         }
         input[type="radio"] {
             margin-right: 10px;
         }
         button {
-            background-color: #1a73e8;
+            background: #007bff;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
         }
         button:hover {
-            background-color: #1666c1;
+            background: #0056b3;
         }
         .success {
-            background-color: #d4edda;
+            background: #d4edda;
             color: #155724;
             padding: 10px;
             margin: 10px 0;
@@ -112,41 +120,60 @@ foreach ($sorular as $soru) {
             border-radius: 5px;
         }
         .sonuclar {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .sonuclar h2 {
-            color: #1a73e8;
+            text-align: left;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
         }
-        .sonuclar p {
+        .bar {
+            height: 20px;
+            background: linear-gradient(to right, #4caf50, #81c784);
+            border-radius: 5px;
             margin: 5px 0;
+        }
+        .bar-wrapper {
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .bar-text {
+            font-size: 14px;
+            padding: 5px;
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Anket</h1>
-    <form method="POST">
-        <?php foreach ($sorular as $index => $soru) : ?>
-            <label><?= htmlspecialchars($soru) ?></label>
-            <?php foreach ($secenekler as $secenek) : ?>
-                <input type="radio" name="cevap_<?= $index ?>" value="<?= htmlspecialchars($secenek) ?>" required>
-                <?= htmlspecialchars($secenek) ?>
+    <div class="container">
+        <h1>Anket</h1>
+        <form method="POST">
+            <?php foreach ($sorular as $index => $soru) : ?>
+                <label><?= htmlspecialchars($soru) ?></label>
+                <?php foreach ($secenekler as $secenek) : ?>
+                    <input type="radio" name="cevap_<?= $index ?>" value="<?= htmlspecialchars($secenek) ?>" required>
+                    <?= htmlspecialchars($secenek) ?>
+                <?php endforeach; ?>
             <?php endforeach; ?>
-        <?php endforeach; ?>
-        <button type="submit" name="oyla">Oy Ver</button>
-    </form>
+            <button type="submit" name="oyla">Oy Ver</button>
+        </form>
 
-    <div class="sonuclar">
-        <h2>Sonuçlar</h2>
-        <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
-            <h3><?= htmlspecialchars($soru) ?></h3>
-            <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
-                <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
+        <div class="sonuclar">
+            <h2>Sonuçlar</h2>
+            <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
+                <h3><?= htmlspecialchars($soru) ?></h3>
+                <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
+                    <div class="bar-wrapper">
+                        <div class="bar" style="width: <?= $yuzde ?>%;"></div>
+                        <div class="bar-text">%<?= htmlspecialchars($yuzde) ?> - <?= htmlspecialchars($secenek) ?></div>
+                    </div>
+                <?php endforeach; ?>
             <?php endforeach; ?>
-        <?php endforeach; ?>
+        </div>
     </div>
 </body>
 </html>
