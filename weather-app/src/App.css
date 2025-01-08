@@ -1,0 +1,166 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #28a745; 
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.btn-about {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-about:hover {
+  background-color: #0056b3;
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  max-width: 250px;
+  margin: 0 auto;
+  max-height: 200px;
+  overflow-y: auto; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+.weather-info {
+  margin-top: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.weather-condition img {
+  width: 100px;
+}
+
+.local-time {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+.local-time p {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .search input {
+    width: 200px;
+  }
+
+  .overlay {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .weather-info p {
+    font-size: 1rem;
+  }
+
+  .local-time p {
+    font-size: 1rem;
+  }
+
+  .suggestions {
+    max-width: 100%; 
+  }
+}
