@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Soruluk Test</title>
+</head>
+<body>
+  <h1>10 Soruluk Test</h1>
+  <div id="questions-container"></div>
+
+  <script>
+    // 10 Soruluk test.json dosyasını yükle ve görüntüle
+    fetch('10soruluktest.json')
+      .then(response => response.json())
+      .then(data => {
+        const questionsContainer = document.getElementById('questions-container');
+        data.questions.forEach((question, index) => {
+          const questionBlock = document.createElement('div');
+          questionBlock.classList.add('question');
+          questionBlock.innerHTML = `
+            <p><strong>${index + 1}. ${question.question}</strong></p>
+            <ul>
+              <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
+              <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
+              <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
+            </ul>
+          `;
+          questionsContainer.appendChild(questionBlock);
+        });
+      })
+      .catch(error => console.error('JSON yüklenirken hata:', error));
+  </script>
+</body>
+</html>
