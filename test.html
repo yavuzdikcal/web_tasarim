@@ -12,7 +12,6 @@
   <p id="result"></p>
 
   <script>
-    // JSON verisi burada direkt olarak tanımlanabilir veya dışarıdan alınabilir
     const data = {
       "questions": [
         {
@@ -136,8 +135,13 @@
     // Sonuçları kontrol et butonuna tıklanınca çalışacak fonksiyon
     document.getElementById('check-answers-btn').addEventListener('click', () => {
       let score = 0;
+      let totalQuestions = data.questions.length;
+      
+      // Her soruyu kontrol et
       data.questions.forEach((question, index) => {
         const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+        
+        // Eğer seçenek seçilmişse ve doğru cevapla eşleşiyorsa
         if (selectedOption && selectedOption.value === question.correctAnswer) {
           score++;
         }
@@ -145,7 +149,7 @@
 
       // Sonuçları ekranda göster
       const resultContainer = document.getElementById('result');
-      resultContainer.textContent = `Test tamamlandı! Doğru cevaplar: ${score} / ${data.questions.length}`;
+      resultContainer.textContent = `Test tamamlandı! Doğru cevaplar: ${score} / ${totalQuestions}`;
     });
   </script>
 </body>
