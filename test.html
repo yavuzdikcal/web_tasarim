@@ -8,6 +8,8 @@
 <body>
   <h1>10 Soruluk Test</h1>
   <div id="questions-container"></div>
+  <button id="check-answers-btn">Sonuçları Kontrol Et</button>
+  <p id="result"></p>
 
   <script>
     // 10 Soruluk test.json dosyasını yükle ve görüntüle
@@ -27,6 +29,21 @@
             </ul>
           `;
           questionsContainer.appendChild(questionBlock);
+        });
+
+        // Sonuçları kontrol et butonuna tıklanınca çalışacak fonksiyon
+        document.getElementById('check-answers-btn').addEventListener('click', () => {
+          let score = 0;
+          data.questions.forEach((question, index) => {
+            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+            if (selectedOption && selectedOption.value === question.correctAnswer) {
+              score++;
+            }
+          });
+
+          // Sonuçları ekranda göster
+          const resultContainer = document.getElementById('result');
+          resultContainer.textContent = `Test tamamlandı! Doğru cevaplar: ${score} / ${data.questions.length}`;
         });
       })
       .catch(error => console.error('JSON yüklenirken hata:', error));
