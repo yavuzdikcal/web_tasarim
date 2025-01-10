@@ -28,41 +28,5 @@
     <li><a href="tablo.php"><strong>Hafta 12(Tablo)</strong></a></li>
     <li><a href="weather-app/src/App.js"><strong>FİNAL HAVA DURUMU</strong></a></li>
   </ul>
-
-  <!-- Test Div'ini Başlangıçta Gizli Yapıyoruz -->
-  <div id="test-container" style="display: none;">
-    <h3>10 Soruluk Test</h3>
-    <div id="questions-container"></div>
-  </div>
-
-  <script>
-    document.getElementById('test-link').addEventListener('click', function(event) {
-      event.preventDefault(); // Linkin normal işlevini engelliyoruz.
-      const testContainer = document.getElementById('test-container');
-      const questionsContainer = document.getElementById('questions-container');
-      questionsContainer.innerHTML = ''; // Her tıklamada eski soruları temizliyoruz
-      testContainer.style.display = 'block'; // Testi gösteriyoruz
-
-      // 10 Soruluk test.json dosyasını yükle ve görüntüle
-      fetch('10soruluktest.json')
-        .then(response => response.json())
-        .then(data => {
-          data.questions.forEach((question, index) => {
-            const questionBlock = document.createElement('div');
-            questionBlock.classList.add('question');
-            questionBlock.innerHTML = `
-              <p><strong>${index + 1}. ${question.question}</strong></p>
-              <ul>
-                <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
-                <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
-                <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
-              </ul>
-            `;
-            questionsContainer.appendChild(questionBlock);
-          });
-        })
-        .catch(error => console.error('JSON yüklenirken hata:', error));
-    });
-  </script>
 </body>
 </html>
