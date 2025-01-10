@@ -1,0 +1,114 @@
+{
+    "htmlQuestions": [
+      {
+        "id": 1,
+        "question": "HTML nedir?",
+        "options": [
+          "A: HyperText Markup Language",
+          "B: Home Tool Markup Language",
+          "C: Hyperlinks and Text Markup Language",
+          "D: HyperText Machine Language"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 2,
+        "question": "HTML dokümanı için standart başlangıç etiketi hangisidir?",
+        "options": [
+          "A: <html>",
+          "B: <head>",
+          "C: <title>",
+          "D: <body>"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 3,
+        "question": "Bir HTML dokümanındaki başlık etiketleri hangi sıralamaya sahiptir?",
+        "options": [
+          "A: <h1>, <h2>, <h3>, <h4>, <h5>, <h6>",
+          "B: <h6>, <h5>, <h4>, <h3>, <h2>, <h1>",
+          "C: <h1>, <h3>, <h2>, <h4>, <h5>, <h6>",
+          "D: <h2>, <h1>, <h3>, <h4>, <h5>, <h6>"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 4,
+        "question": "Hangi HTML etiketi paragraf oluşturmak için kullanılır?",
+        "options": [
+          "A: <p>",
+          "B: <paragraph>",
+          "C: <par>",
+          "D: <pg>"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 5,
+        "question": "Bir HTML sayfasında bir bağlantı oluşturmak için hangi etiket kullanılır?",
+        "options": [
+          "A: <link>",
+          "B: <a>",
+          "C: <href>",
+          "D: <url>"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 6,
+        "question": "HTML'de resim eklemek için hangi etiket kullanılır?",
+        "options": [
+          "A: <image>",
+          "B: <img>",
+          "C: <pic>",
+          "D: <src>"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 7,
+        "question": "Bir HTML tablosu hangi etiketle başlar?",
+        "options": [
+          "A: <table>",
+          "B: <tr>",
+          "C: <td>",
+          "D: <tab>"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": 8,
+        "question": "Bir HTML formunun içine hangi etiket veri girişi için kullanılır?",
+        "options": [
+          "A: <form>",
+          "B: <input>",
+          "C: <submit>",
+          "D: <textarea>"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": 9,
+        "question": "Bir HTML belgesine CSS dosyası bağlamak için hangi etiket kullanılır?",
+        "options": [
+          "A: <style>",
+          "B: <css>",
+          "C: <link>",
+          "D: <stylesheet>"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": 10,
+        "question": "Bir HTML dokümanında yorum nasıl eklenir?",
+        "options": [
+          "A: <!-- Yorum -->",
+          "B: // Yorum",
+          "C: /* Yorum */",
+          "D: ' Yorum"
+        ],
+        "answer": "A"
+      }
+    ]
+  }
