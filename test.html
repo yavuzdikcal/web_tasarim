@@ -12,41 +12,141 @@
   <p id="result"></p>
 
   <script>
-    // 10 Soruluk test.json dosyasını yükle ve görüntüle
-    fetch('10soruluktest.json')
-      .then(response => response.json())
-      .then(data => {
-        const questionsContainer = document.getElementById('questions-container');
-        data.questions.forEach((question, index) => {
-          const questionBlock = document.createElement('div');
-          questionBlock.classList.add('question');
-          questionBlock.innerHTML = `
-            <p><strong>${index + 1}. ${question.question}</strong></p>
-            <ul>
-              <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
-              <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
-              <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
-            </ul>
-          `;
-          questionsContainer.appendChild(questionBlock);
-        });
+    // JSON verisi burada direkt olarak tanımlanabilir veya dışarıdan alınabilir
+    const data = {
+      "questions": [
+        {
+          "id": "q1",
+          "question": "HTML neyin kısaltmasıdır?",
+          "options": {
+            "a": "Hyper Text Makeup Language",
+            "b": "Hyper Text Markup Language",
+            "c": "Hyper Tool Markup Language"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q2",
+          "question": "CSS'in açılımı nedir?",
+          "options": {
+            "a": "Creative Style Sheets",
+            "b": "Cascading Style Sheets",
+            "c": "Computer Style Sheets"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q3",
+          "question": "JavaScript hangi amaçla kullanılır?",
+          "options": {
+            "a": "Statik içerik oluşturmak",
+            "b": "Dinamik içerik oluşturmak",
+            "c": "Veri tabanları yönetmek"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q4",
+          "question": "Bir HTML belgesindeki başlıklar hangi etiketle tanımlanır?",
+          "options": {
+            "a": "head",
+            "b": "h1 - h6",
+            "c": "header"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q5",
+          "question": "JavaScript dosyaları hangi uzantıya sahiptir?",
+          "options": {
+            "a": ".js",
+            "b": ".java",
+            "c": ".script"
+          },
+          "correctAnswer": "a"
+        },
+        {
+          "id": "q6",
+          "question": "CSS'te renkleri tanımlamak için hangi yöntem kullanılır?",
+          "options": {
+            "a": "Hex kodu",
+            "b": "RGB değeri",
+            "c": "Her ikisi de"
+          },
+          "correctAnswer": "c"
+        },
+        {
+          "id": "q7",
+          "question": "Hangi HTML etiketi bir bağlantı oluşturur?",
+          "options": {
+            "a": "link",
+            "b": "a",
+            "c": "href"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q8",
+          "question": "JavaScript'te bir dizi nasıl tanımlanır?",
+          "options": {
+            "a": "let array = {};",
+            "b": "let array = [];",
+            "c": "let array = ();"
+          },
+          "correctAnswer": "b"
+        },
+        {
+          "id": "q9",
+          "question": "HTML'de bir görüntü nasıl eklenir?",
+          "options": {
+            "a": "picture",
+            "b": "image",
+            "c": "img"
+          },
+          "correctAnswer": "c"
+        },
+        {
+          "id": "q10",
+          "question": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
+          "options": {
+            "a": "function myFunction() {}",
+            "b": "func myFunction() {}",
+            "c": "def myFunction() {}"
+          },
+          "correctAnswer": "a"
+        }
+      ]
+    };
 
-        // Sonuçları kontrol et butonuna tıklanınca çalışacak fonksiyon
-        document.getElementById('check-answers-btn').addEventListener('click', () => {
-          let score = 0;
-          data.questions.forEach((question, index) => {
-            const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
-            if (selectedOption && selectedOption.value === question.correctAnswer) {
-              score++;
-            }
-          });
+    const questionsContainer = document.getElementById('questions-container');
+    data.questions.forEach((question, index) => {
+      const questionBlock = document.createElement('div');
+      questionBlock.classList.add('question');
+      questionBlock.innerHTML = `
+        <p><strong>${index + 1}. ${question.question}</strong></p>
+        <ul>
+          <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
+          <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
+          <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
+        </ul>
+      `;
+      questionsContainer.appendChild(questionBlock);
+    });
 
-          // Sonuçları ekranda göster
-          const resultContainer = document.getElementById('result');
-          resultContainer.textContent = `Test tamamlandı! Doğru cevaplar: ${score} / ${data.questions.length}`;
-        });
-      })
-      .catch(error => console.error('JSON yüklenirken hata:', error));
+    // Sonuçları kontrol et butonuna tıklanınca çalışacak fonksiyon
+    document.getElementById('check-answers-btn').addEventListener('click', () => {
+      let score = 0;
+      data.questions.forEach((question, index) => {
+        const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selectedOption && selectedOption.value === question.correctAnswer) {
+          score++;
+        }
+      });
+
+      // Sonuçları ekranda göster
+      const resultContainer = document.getElementById('result');
+      resultContainer.textContent = `Test tamamlandı! Doğru cevaplar: ${score} / ${data.questions.length}`;
+    });
   </script>
 </body>
 </html>
