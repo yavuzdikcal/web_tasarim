@@ -47,7 +47,10 @@
                       </li>
                       <li>
                         <a href="10soruluktest.json"><strong>Hafta 10-2(10 Soruluk Test)</strong></a>
-                        </li>
+                      </li>
+                      <li>
+                          <a href="10soruluktest.html"><strong>Hafta 10-2(Test Sayfası)</strong></a>
+                      </li>
                         <li>
                           <a href="karecanvas.html"><strong>Hafta 10-3(Canvas Kareler)</strong></a>
                           </li>
@@ -65,5 +68,29 @@
                                   </li>
     </ul>
   </ul>
+
+  <script>
+    // 10 Soruluk test.json dosyasını yükle ve görüntüle
+    fetch('10soruluktest.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.createElement('div');
+        container.innerHTML = '<h3>10 Soruluk Test</h3>';
+        data.questions.forEach((question, index) => {
+          const questionBlock = document.createElement('div');
+          questionBlock.innerHTML = `
+            <p><strong>${index + 1}. ${question.question}</strong></p>
+            <ul>
+              <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
+              <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
+              <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
+            </ul>
+          `;
+          container.appendChild(questionBlock);
+        });
+        document.body.appendChild(container);
+      })
+      .catch(error => console.error('JSON yüklenirken hata:', error));
+  </script>
 </body>
 </html>
