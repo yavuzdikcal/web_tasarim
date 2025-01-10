@@ -1,5 +1,5 @@
 <?php
-// Veritabanı bağlantısı
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Bağlantı başarısız: " . $conn->connect_error);
 }
 
-// Sorular ve seçenekler
+
 $sorular = [
     "PHP'yi ne kadar seviyorsunuz?",
     "Bu sektörde çalışmak ister miydiniz?",
@@ -22,7 +22,7 @@ $sorular = [
 
 $secenekler = ["Çok", "Az", "Hiç", "Bilmiyorum"];
 
-// Oylama gönderildiğinde işleme
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     foreach ($sorular as $index => $soru) {
         $cevap = $_POST['cevap_' . $index];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     echo "<div class='success'>Oylarınız başarıyla kaydedildi!</div>";
 }
 
-// Sonuçları alma
+
 $sonuclar = [];
 foreach ($sorular as $soru) {
     $sql = "SELECT cevap, COUNT(*) as sayi FROM anket_sonuclari WHERE soru = ? GROUP BY cevap";

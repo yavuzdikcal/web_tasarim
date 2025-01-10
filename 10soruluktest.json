@@ -34,9 +34,9 @@
       "id": "q4",
       "question": "Bir HTML belgesindeki başlıklar hangi etiketle tanımlanır?",
       "options": {
-        "a": "<head>",
-        "b": "<h1> - <h6>",
-        "c": "<header>"
+        "a": "head",
+        "b": "h1 - h6",
+        "c": "header"
       },
       "correctAnswer": "b"
     },
@@ -64,9 +64,9 @@
       "id": "q7",
       "question": "Hangi HTML etiketi bir bağlantı oluşturur?",
       "options": {
-        "a": "<link>",
-        "b": "<a>",
-        "c": "<href>"
+        "a": "link",
+        "b": "a",
+        "c": "href"
       },
       "correctAnswer": "b"
     },
@@ -84,9 +84,9 @@
       "id": "q9",
       "question": "HTML'de bir görüntü nasıl eklenir?",
       "options": {
-        "a": "<picture>",
-        "b": "<image>",
-        "c": "<img>"
+        "a": "picture",
+        "b": "image",
+        "c": "img"
       },
       "correctAnswer": "c"
     },
