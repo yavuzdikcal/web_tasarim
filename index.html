@@ -9,57 +9,63 @@
   <h1>Merhaba!</h1>
   <h2>Hazırlayan: Yavuz Burak Dikçal</h2>
   <ul>
-    <li><a href="hafta2.html"><strong>Hafta 2(Masal)</strong></a></li>
-    <li><a href="hafta3.html"><strong>Hafta 3(Ders Programı) </strong></a></li>
-    <li><a href="form1.html"><strong>Hafta 4(Form ve test)</strong></a></li>
-    <li><a href="daire.html"><strong>Hafta 5(İç içe daireler)</strong></a></li>
-    <li><a href="renklikutular.html"><strong>Hafta 7(Flex Box Grid Layout)</strong></a></li>
-    <li><a href="animasyon1.html"><strong>Hafta 8(Animasyonlu yüzler)</strong></a></li>
-    <li><a href="kart.html"><strong>Hafta 8-1(Responsive kartlar)</strong></a></li>
-    <li><a href="kedikopek.html"><strong>Hafta 8-2(Kedi ve Köpek)</strong></a></li>
-    <li><a href="rastgele.html"><strong>Hafta 8-3(Rastgele resimler)</strong></a></li>
-    <li><a href="hafta10.html"><strong>Hafta 10(Renkli yuvarlaklar)</strong></a></li>
-    <li><a href="duyurupenceresi.html"><strong>Hafta 10-1(Duyuru Penceresi)</strong></a></li>
-    <li><a href="10soruluktest.json"><strong>Hafta 10-2(10 Soruluk Test)</strong></a></li>
-    <li><a href="10soruluktest.html" id="test-link"><strong>Hafta 10-2(Test Sayfası)</strong></a></li>
-    <li><a href="karecanvas.html"><strong>Hafta 10-3(Canvas Kareler)</strong></a></li>
-    <li><a href="teksayilar.php"><strong>Hafta 11(Tek Sayılar)</strong></a></li>
-    <li><a href="phptablo.php"><strong>Hafta 11-1(Php tablo)</strong></a></li>
-    <li><a href="tablo.php"><strong>Hafta 12(Tablo)</strong></a></li>
-    <li><a href="weather-app/src/App.js"><strong>FİNAL HAVA DURUMU</strong></a></li>
-  </ul>
+    <li>
+      <a href="hafta2.html"><strong>Hafta 2(Masal)</strong></a>
+      </li>
+    
+      <li>
+    <a href="hafta3.html"><strong>Hafta 3(Ders Programı) </strong></a>
+      </li>
+      
+      <li>
+        <a href="form1.html"><strong>Hafta 4(Form ve test)</strong></a>
+          </li>
+          <li>
+          <a href="daire.html"><strong>Hafta 5(İç içe daireler)</strong></a>
+          </li>
+          <li>
+            <a href="renklikutular.html"><strong>Hafta 7(Flex Box Grid Layout)</strong></a>
+            </li>
+          <li>
+            <a href="animasyon1.html"><strong>Hafta 8(Animasyonlu yüzler)</strong></a>
+            </li>
 
-  <!-- Test Div'ini Başlangıçta Gizli Yapıyoruz -->
-  <div id="test-container" style="display: none;">
-    <h3>10 Soruluk Test</h3>
-  </div>
-
-  <script>
-    document.getElementById('test-link').addEventListener('click', function(event) {
-      event.preventDefault(); // Linkin normal işlevini engelliyoruz.
-      const testContainer = document.getElementById('test-container');
-      testContainer.style.display = 'block'; // Testi gösteriyoruz
-
-      // 10 Soruluk test.json dosyasını yükle ve görüntüle
-      fetch('10soruluktest.json')
-        .then(response => response.json())
-        .then(data => {
-          const container = document.getElementById('test-container');
-          data.questions.forEach((question, index) => {
-            const questionBlock = document.createElement('div');
-            questionBlock.innerHTML = `
-              <p><strong>${index + 1}. ${question.question}</strong></p>
-              <ul>
-                <li><input type="radio" name="q${index}" value="a"> ${question.options.a}</li>
-                <li><input type="radio" name="q${index}" value="b"> ${question.options.b}</li>
-                <li><input type="radio" name="q${index}" value="c"> ${question.options.c}</li>
-              </ul>
-            `;
-            container.appendChild(questionBlock);
-          });
-        })
-        .catch(error => console.error('JSON yüklenirken hata:', error));
-    });
-  </script>
+            <li>
+              <a href="kart.html"><strong>Hafta 8-1(Responsive kartlar)</strong></a>
+              </li>
+              <li>
+                <a href="kedikopek.html"><strong>Hafta 8-2(Kedi ve Köpek)</strong></a>
+                </li>
+                <li>
+                  <a href="rastgele.html"><strong>Hafta 8-3(Rastgele resimler)</strong></a>
+                  </li>
+                  <li>
+                    <a href="hafta10.html"><strong>Hafta 10(Renkli yuvarlaklar)</strong></a>
+                    </li>
+                    <li>
+                      <a href="duyurupenceresi.html"><strong>Hafta 10-1(Duyuru Penceresi)</strong></a>
+                      </li>
+                      <li>
+                        <a href="10soruluktest.json"><strong>Hafta 10-2(10 Soruluk Test)</strong></a>
+                      </li>
+                      <li>
+                          <a href="10soruluktest.html"><strong>Hafta 10-2(Test Sayfası)</strong></a>
+                      </li>
+                        <li>
+                          <a href="karecanvas.html"><strong>Hafta 10-3(Canvas Kareler)</strong></a>
+                          </li>
+                          <li>
+                            <a href="teksayilar.php"><strong>Hafta 11(Tek Sayılar)</strong></a>
+                            </li>
+                            <li>
+                              <a href="phptablo.php"><strong>Hafta 11-1(Php tablo)</strong></a>
+                              </li>
+                              <li>
+                                <a href="tablo.php"><strong>Hafta 12(Tablo)</strong></a>
+                                </li>
+                                <li>
+                                  <a href="weather-app/src/App.js"><strong>FİNAL HAVA DURUMU</strong></a>
+                                  </li>
+    </ul>
 </body>
 </html>
